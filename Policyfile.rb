@@ -22,8 +22,13 @@ default_source :community
 # supermarket. See the POLICYFILE_README.md for more information.
 
 run_list(
-  'pantry'
+    'pantry',
+    'housepub-win8-services',
+    'housepub-hyperv'
 )
+
+cookbook 'housepub-win8-services', git: 'https://github.com/jtimberman/housepub-win8-services-cookbook'
+cookbook 'housepub-hyperv', git: 'https://github.com/jtimberman/housepub-hyperv-cookbook'
 
 ############
 # Attributes
@@ -33,8 +38,64 @@ run_list(
 # %w(git go packer tree)
 #
 # packages for OS X
-default['homebrew']['casks']      = %w()
-default['homebrew']['formula']    = %w()
-default['homebrew']['taps']       = %w()
+default['homebrew']['casks'] = %w(
+    java
+    atom
+    cakebrew
+    cargo
+    chefdk
+    evernote
+    firefox
+    flowdock
+    flux
+    github-desktop
+    gpgtools
+    grandperspective
+    google-chrome
+    iterm2-beta
+    licecap
+    onyx
+    python
+    ssh-tunnel-manager
+    vagrant
+    virtualbox
+)
+default['homebrew']['formula'] = %w(
+    ack
+    awscli
+    coreutils
+    dos2unix
+    direnv
+    dffoscope
+    freetype
+    git
+    ispell
+    jenv
+    jsonpp
+    kafkacat
+    mackup
+    python
+    readline
+    slurm
+    swagger-codegen
+    wget
+    zsh
+    zsh-completions
+)
+default['homebrew']['taps']       = %w(caskroom/fonts caskroom/versions)
 # packages for Windows
-default['chocolatey']['packages'] = %w()
+default['chocolatey']['packages'] = %w(
+google-chrome-x64
+  visualstudiocode
+  conemu
+  putty
+  atom
+  git
+  battle.net
+  mumble
+  steam
+  dropbox
+  sysinternals
+  irfanview
+  dashlane
+)
