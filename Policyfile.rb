@@ -7,6 +7,8 @@ name 'pantry'
 # Get cookbooks from supermarket.chef.io
 default_source :community
 
+# cookbook 'pantry', git: 'https://github.com/joshoohaah/pantry-chef-repo.git'
+
 ##########
 # Run List
 # chef-client will run these recipes in the order specified.
@@ -22,13 +24,13 @@ default_source :community
 # supermarket. See the POLICYFILE_README.md for more information.
 
 run_list(
-    'pantry',
-    'housepub-win8-services',
-    'housepub-hyperv'
+    'pantry'#,
+    # 'housepub-win8-services',
+    # 'housepub-hyperv'
 )
 
-cookbook 'housepub-win8-services', git: 'https://github.com/jtimberman/housepub-win8-services-cookbook'
-cookbook 'housepub-hyperv', git: 'https://github.com/jtimberman/housepub-hyperv-cookbook'
+# cookbook 'housepub-win8-services', git: 'https://github.com/jtimberman/housepub-win8-services-cookbook'
+# cookbook 'housepub-hyperv', git: 'https://github.com/jtimberman/housepub-hyperv-cookbook'
 
 ############
 # Attributes
@@ -66,7 +68,7 @@ default['homebrew']['formula'] = %w(
     coreutils
     dos2unix
     direnv
-    dffoscope
+    diffoscope
     freetype
     git
     ispell
@@ -85,17 +87,17 @@ default['homebrew']['formula'] = %w(
 default['homebrew']['taps']       = %w(caskroom/fonts caskroom/versions)
 # packages for Windows
 default['chocolatey']['packages'] = %w(
-google-chrome-x64
-  visualstudiocode
-  conemu
-  putty
-  atom
-  git
-  battle.net
-  mumble
-  steam
-  dropbox
-  sysinternals
-  irfanview
-  dashlane
+google - chrome - x64
+visualstudiocode
+conemu
+putty
+atom
+git
+battle.net
+mumble
+steam
+dropbox
+sysinternals
+irfanview
+dashlane
 )
